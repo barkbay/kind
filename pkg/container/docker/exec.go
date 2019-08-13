@@ -17,6 +17,7 @@ limitations under the License.
 package docker
 
 import (
+	"fmt"
 	"io"
 
 	"sigs.k8s.io/kind/pkg/exec"
@@ -92,6 +93,7 @@ func (c *containerCmd) Run() error {
 	if c.stdout != nil {
 		cmd.SetStdout(c.stdout)
 	}
+	fmt.Printf("Docker: %v\n", args)
 	return cmd.Run()
 }
 
